@@ -28,6 +28,22 @@ public class Converter {
       return pounds + " lbs " + remainOunces + " oz";
     }
   }
+
+  public String toOunces(int pounds, int ounces)
+  {
+    int ounceFromPounds = (pounds * 16) + ounces;
+    return String.format("%.4s %s", ounceFromPounds, "oz");
+  }
+
+  public static void main(String[] args)
+  {
+    Converter converter = new Converter();
+
+    converter.toPounds(0); // will return the string "0.0000 lbs"
+    converter.toPounds(16); // will return the string "1.0000 lb"
+    converter.toPoundsAndOunces(18); // will return the string "1 lb 2 oz"
+    converter.toPoundsAndOunces(36);
+  }
 }
 
 
